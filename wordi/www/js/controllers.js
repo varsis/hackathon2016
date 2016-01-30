@@ -52,21 +52,24 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('DashboardCtrl', function($scope) {
+.controller('DashboardCtrl', function($scope, $state) {
   
   $scope.games = [
-    { id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' },
-    { id: 1, img: "img/ionic.png", opponent: 'Chris Pav' },
-    { id: 2, img: "img/ionic.png", opponent: 'Joe Rogan' },
-    { id: 3, img: "img/ionic.png", opponent: 'Emily Blunt' }
-  ];
-  
-  
+      { game_id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' },
+      { game_id: 1, img: "img/ionic.png", opponent: 'Chris Pav' },
+      { game_id: 2, img: "img/ionic.png", opponent: 'Joe Rogan' },
+      { game_id: 3, img: "img/ionic.png", opponent: 'Emily Blunt' }
+    ];
+    
+    $scope.playGame = function() {
+        $state.go('app.game_lobby');
+    }
   
 })
 
 .controller('GameCtrl', function($scope) {
   
+  $scope.game = { game_id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' };
   
 })
 
