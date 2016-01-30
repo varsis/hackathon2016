@@ -52,5 +52,23 @@ angular.module('starter.controllers', [])
   ];
 })
 
+.controller('DashboardCtrl', function($scope) {
+  
+  $scope.games = [
+    { id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' },
+    { id: 1, img: "img/ionic.png", opponent: 'Chris Pav' },
+    { id: 2, img: "img/ionic.png", opponent: 'Joe Rogan' },
+    { id: 3, img: "img/ionic.png", opponent: 'Emily Blunt' }
+  ];
+  
+  
+  
+})
+
+.controller('GameCtrl', function($scope) {
+  
+  
+})
+
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
