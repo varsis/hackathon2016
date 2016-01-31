@@ -26,8 +26,6 @@ SECRET_KEY = 'g&kod_br55!ydlhd1c=10%q@wykb0!jyhuizn8r9m*f#up_2*&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -145,6 +143,12 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '92f5df125cd950d69eba7670d8fc6543'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 AUTH_PASSWORD_VALIDATORS = [
     {
