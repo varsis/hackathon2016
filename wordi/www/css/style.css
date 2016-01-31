@@ -1,10 +1,62 @@
 /* Empty. Add your own CSS if you like */
 
+.bar .bar-header, bar.bar-stable{
+	background-color: #303030 !important;
+}
 
+.dark {
+	color: white;
+	background-color: #303030;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4 {
+	color: white;
+	font-weight: 200;
+}
+
+.opp-breakdown {
+	font-size: 1.2em;
+}
 
 .prof_pic {
 	width: 6em;
 	height: 6em;
+}
+
+.bar.bar-light {
+  background-color: rgba(0,0,0,0.5) !important; /* or transparent, or background:none */
+}
+
+.dash-footer {
+	height: 6em !important;
+}
+
+.dash-footer .button-new-game {
+	font-size: 1.5em;
+	font-weight: 900;
+	height: 2em;
+	width: 70%;
+	margin: auto;
+}
+
+.pre-dash-header {
+	background-color: darkturquoise;
+	color: white;
+	font-size: 1.0em;
+}
+
+.dash-header {
+	background-color: darkturquoise;
+	color: white;
+	font-size: 1.5em;
+}
+
+.dash-header span {
+	font-size: 0.6em;
+}
+
+.button_score h4 {
+	color: white;
 }
 
 input {

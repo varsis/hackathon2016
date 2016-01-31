@@ -1,17 +1,35 @@
-<ion-view view-title="Lobby">
+<ion-view view-title="Lobby" class="dark">
   <ion-content>
-     <div class="item item-avatar">
-           <img class="prof_pic" src={{game.img}}>
-          <h2>{{game.opponent}}</h2>
-          <p>Pending since {{createdOn}}</p>
+    
+    <center><h1>{{game.opponent}}</h1></center>
+    
+    <!-- Opponent breakdown -->
+    <div class="opp-breakdown" ng-repeat="num in [1,2,3,4,5]">
+      <div class="row">
+        <div class="col col-50">
+          Round {{num}}
         </div>
+        <div class="col col-50">
+          123
+        </div>
+      </div>
+    </div>
+    
+    
+    </div>
     <center><h4>Score to Beat</h4></center>
     <center><h1>107</h1></center>
     
-    <center>
-    <button class="button button-calm" ng-click="play()">
-      GO!
-    </button>
-    </center>
+    <div>
+      <center>
+        <button class="button button-calm button-large" ng-show="timer > 5" ng-click="play()">
+          <h1>GO</h1>
+        </button>
+        <button class="button button-calm button-large" ng-show="timer <= 5">
+          <h1>{{timer}}</h1>
+        </button>
+      </center>
+    </div>
+   
   </ion-content>
 </ion-view>

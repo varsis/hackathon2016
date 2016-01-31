@@ -1,17 +1,53 @@
-<ion-view view-title="Dashboard">
-  <ion-content>
-    <ion-list>
-      
+<ion-view view-title="Wordi" class="dark">
 
+  <ion-content>
+    
+    <div class="row dash-header">
+      <div class="col col-33">
+        <center>
+          <span>LIVES</span><br/>
+          <i class="icon ion-heart"></i>
+          3
+        </center>
+      </div>
+      <div class="col col-33">
+        <center>
+          <span>COINS</span><br/>
+          <i class="icon ion-social-usd"></i>
+          23
+        </center>
+      </div>
+      <div class="col col-33">
+        <center>
+          <span>LEVEL</span><br/>
+          <i class="icon ion-star"></i>
+          2
+        </center>
+      </div>
+    </div>
+    
+    
+    <ion-list>
       
       <div ng-repeat="game in games" href="#/app/game_lobby/{{game.game_id}}" class="list card">
       
-        <div class="item item-avatar">
-           <img class="prof_pic" src={{game.img}}>
-          <h2>{{game.opponent}}</h2>
-          <p>Pending since {{createdOn}}</p>
+        <div class="row">
+          <div class="col col-80">
+            <div class="item item-avatar">
+              <img class="prof_pic" src={{game.img}}>
+              <h2>{{game.opponent}} challenged you!</h2>
+              <p>You have 23 hours left to accept...</p>
+            </div>
+          </div>
+        
+          <div class="col col-20">
+            <center>
+              <span>SCORE</span><br/>
+              <button class="button button-energized button_score"><h4>130</h4></button>
+            </center>
+          </div>
+          
         </div>
-       
         
         <button class="button button-full button-calm" ng-click="playGame()">
           <i class="icon ion-happy-outline"></i><span> Play</span>
@@ -21,8 +57,8 @@
     </ion-list>
   </ion-content>
   
-  <div class="bar bar-footer bar-balanced">
-  <div class="title">New Game</div>
-</div>
+  <div class="bar bar-footer bar-light dash-footer">
+    <button class="button button-calm button-large button-new-game">NEW GAME</button>
+  </div>
   
 </ion-view>

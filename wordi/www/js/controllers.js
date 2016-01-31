@@ -74,13 +74,32 @@ angular.module('starter.controllers', ['services'])
     }
 })
 
-.controller('GameCtrl', function($scope, $state) {
+.controller('GameCtrl', function($scope, $state, $timeout) {
   
   $scope.game = { game_id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' };
-  $scope.winner;
-
+  $scope.countdown_intiated = false;
+  $scope.timer = 10;
+  var mytimeout;
+  
+  $scope.init_countdown = function() {
+    mytimeout = $timeout($scope.onTimeout, 1000);
+  }
+  
+  $scope.onTimeout = function() {
+    if ($scope.timer <= 0) {
+      $state.go('app.round');
+       $scope.timer = 10;
+    } else {
+       $scope.timer--;
+      mytimeout = $timeout($scope.onTimeout, 1000);
+    }
+  }
+  
   $scope.play = function() {
-    $state.go('app.round');
+    $scope.timer = 5;
+    $scope.init_countdown();
+    
+    //$state.go('app.round');
   }
 
   $scope.calcResults = function(){
