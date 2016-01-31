@@ -52,6 +52,11 @@
 	height: 6em;
 }
 
+.big_prof_pic {
+	width: 9em;
+	height: 9em;
+}
+
 .bar.bar-light {
   background-color: rgba(0,0,0,0.7) !important; /* or transparent, or background:none */
 }

@@ -37,6 +37,10 @@ angular.module('starter.controllers', ['services', 'ngRoute'])
   $scope.playGame = function(game) {
         $state.go('app.game_lobby/:gameid', {gameid:game.game_id});
   }
+  $scope.newGame = function(user) {
+    var g = GameService.new(user);
+    $state.go('app.game_lobby/:gameid', {gameid:g-1});
+  }
 })
 
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {

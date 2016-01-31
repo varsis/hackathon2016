@@ -5,17 +5,19 @@
         <div class="row">
           <div class="col col-80">
             <div class="item item-avatar">
-              <img class="prof_pic" src={{user.img}}>
-              <h3>{{user.name}}</h3>
-              <button class="button button-calm button-large button-new-game" ng-click="playGame(user)"><h4>Play</h4></button>
+              <img class="big_prof_pic" src={{user.img}}>
+              <div style="position:absolute; left: 50%;">
+              <h2>{{user.name}}</h2>
+              <h2>{{user.wins}} - {{user.losses}}</h2>
+              </div>
             </div>
           </div>
         
-          <div class="col col-20">
+          <div ng-controller="DashboardCtrl" class="col col-20">
             <center>
-              <span>Win-Loss</span><br/>
-              <button class="button button-energized button_score"><h4>{{user.wins}} - {{user.losses}}</h4></button>
-            </center>
+              <button class="button button-calm button-large button-new-game" ng-click="newGame(user)">
+              <h4>Play</h4></button>
+              </center>
           </div>          
         </div>
       </div>

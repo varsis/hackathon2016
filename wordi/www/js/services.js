@@ -62,6 +62,10 @@ angular.module('services', [])
     },
     get: function(gameId) {
         return games[gameId];
+     },
+     new: function(user) {
+        games.splice(games.length, 0, {game_id: games.length, img: "img/ionic.png", opponent: user.name, opponentscore: 0});
+        return games.length;
      }
   };
 })
