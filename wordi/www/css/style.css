@@ -6,3 +6,24 @@
 	width: 6em;
 	height: 6em;
 }
+
+input {
+	text-align: center;
+}
+
+input.submission {
+	font-size: 1.2em;
+}
+
+.col-50 {
+	padding-top: 1em;
+}
+
+.guesses {
+	color: grey;
+}
+
+.guesses_container {
+	overflow: hidden;
+	height: 12em;
+}

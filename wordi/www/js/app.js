@@ -61,11 +61,21 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
     
     .state('app.game_lobby', {
-      url: '/game_lobby',
+      url: '/game_lobby ',
       views: {
         'menuContent': {
           templateUrl: 'templates/gameLobby.html',
           controller: 'GameCtrl'
+        }
+      }
+    })
+    
+    .state('app.round', {
+      url: '/round ',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/round.html',
+          controller: 'RoundCtrl'
         }
       }
     })
@@ -88,14 +98,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           controller: 'PlaylistCtrl'
         }
       }
-    })
-
-    .state('login', {
-      url: '/login',
-      templateUrl: 'templates/index.html',
-      controller: 'LoginCtrl'
-    })
+    });
   // if none of the above states are matched, use this as the fallback
-  //$urlRouterProvider.otherwise('/app/playlists');
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/app/playlists');
 });

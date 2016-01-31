@@ -74,10 +74,55 @@ angular.module('starter.controllers', ['services'])
     }
 })
 
-.controller('GameCtrl', function($scope) {
+.controller('GameCtrl', function($scope, $state) {
   
   $scope.game = { game_id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' };
   
+  $scope.play = function() {
+    $state.go('app.round');
+  }
+  
+})
+
+.controller('RoundCtrl', function($scope, $timeout, $ionicScrollDelegate) {
+  
+  $scope.input = {
+    current_submission : ''
+
+  };
+  
+  $scope.rounds = [
+    {
+      round_time: 12,
+      word: "INSECT",
+      score: 0,
+      synonyms: [],
+      submissions: []
+    }
+  ]
+
+  $scope.round = 0;
+  $scope.timer = $scope.rounds[$scope.round].round_time;
+  $scope.word = $scope.rounds[$scope.round].word;
+  $scope.score = $scope.rounds[$scope.round].score;
+  $scope.submissions = $scope.rounds[$scope.round].submissions;
+  
+  $scope.onTimeout = function(){
+    if ($scope.timer <= 0) {
+      $scope.timer = $scope.rounds[$scope.round].round_time;
+    }
+    $scope.timer--;
+    mytimeout = $timeout($scope.onTimeout,1000);
+  }
+  var mytimeout = $timeout($scope.onTimeout,1000);
+    
+  $scope.submit = function(current_submission) {
+    if (current_submission != '') {
+      $scope.submissions.push(current_submission);
+      $scope.input.current_submission = "";
+      $ionicScrollDelegate.$getByHandle('submissions').scrollBottom();
+    }
+  }
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
