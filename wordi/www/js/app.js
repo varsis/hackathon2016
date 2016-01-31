@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','ngRoute'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,7 +22,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $routeProvider, $urlRouterProvider, $locationProvider) {
+
+  $routeProvider.when("/:gameid",
+    {
+      templateUrl: "templates/gameLobby.html",
+      controller: "GameCtrl",
+      controllerAs: "app"
+    }
+  );
+  
   $stateProvider
 
     .state('app', {
@@ -52,8 +61,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
     
-    .state('app.game_lobby', {
-      url: '/game_lobby',
+    .state('app.game_lobby/:gameid', {
+      url: '/game_lobby/:gameid',
       views: {
         'menuContent': {
           templateUrl: 'templates/gameLobby.html',

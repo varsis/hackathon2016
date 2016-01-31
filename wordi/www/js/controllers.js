@@ -1,7 +1,6 @@
-angular.module('starter.controllers', ['services'])
+angular.module('starter.controllers', ['services', 'ngRoute'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -35,8 +34,8 @@ angular.module('starter.controllers', ['services'])
   
   $scope.games = GameService.all();
 
-  $scope.playGame = function() {
-        $state.go('app.game_lobby');
+  $scope.playGame = function(game) {
+        $state.go('app.game_lobby/:gameid', {gameid:game.game_id});
   }
 })
 
@@ -59,11 +58,12 @@ angular.module('starter.controllers', ['services'])
 })
 
 
-.controller('GameCtrl', function($scope, $state, $timeout, GameService, UserService) {
+
+.controller('GameCtrl', function($scope, $state, $timeout, GameService, UserService, $routeParams) {
   
   //$scope.game = { game_id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' };
-  $scope.users = UserService.all(); 
-  $scope.game = GameService.get(0);
+  $scope.users = UserService.all();
+  $scope.game = GameService.get($state.params.gameid);
   $scope.timer = 10;
   var mytimeout;
   
@@ -92,8 +92,7 @@ angular.module('starter.controllers', ['services'])
   }
   
   $scope.playGame = function() {
-    console.log("playgame in game controller");
-        $state.go('app.game_lobby');
+    $state.go('app.game_lobby');
   }
 
 })
