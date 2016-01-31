@@ -1,15 +1,15 @@
-<ion-view view-title="Round">
+<ion-view view-title={{roundTitle}}>
   <ion-content>
     
     <div class="row">
       <div class="col col-25">
-        <button class="button button-full button-calm"><h4>{{timer}}</h4></button> 
+        <button class="button button-full button-calm"><h4>{{rounds[round].round_time}}</h4></button> 
       </div>
       <div class="col col-50" >      
-        <center><h2>{{word}}</h2></center>     
+        <center><h2>{{rounds[round].word}}</h2></center>     
       </div>
       <div class="col col-25">
-        <button class="button button-full button-outline button-calm"><h4>{{score}}</h4></button>
+        <button class="button button-full button-outline button-calm"><h4>{{rounds[round].score}}</h4></button>
       </div>
     </div>
     
@@ -19,10 +19,12 @@
     
     <!-- Guesses list -->
    <ion-scroll class="guesses_container" delegate-handle="submissions">
-      <div class="ion-list guesses" ng-repeat="word in submissions track by $index">
+      <div class="ion-list guesses" ng-repeat="word in rounds[round].submissions track by $index">
         <ion-item class="item">
-          {{word}}
-          <span class="badge badge-calm">10</span>
+          <div ng-repeat="(key, value) in word">
+            {{key}}
+            <span class="badge badge-calm">{{value}}</span>
+          </div>
         </ion-item>
       </div>
     </ion-scroll>

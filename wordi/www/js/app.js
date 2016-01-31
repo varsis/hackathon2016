@@ -61,7 +61,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
     
     .state('app.game_lobby', {
-      url: '/game_lobby ',
+      url: '/game_lobby',
       views: {
         'menuContent': {
           templateUrl: 'templates/gameLobby.html',
@@ -71,7 +71,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
     
     .state('app.round', {
-      url: '/round ',
+      url: '/round',
       views: {
         'menuContent': {
           templateUrl: 'templates/round.html',
