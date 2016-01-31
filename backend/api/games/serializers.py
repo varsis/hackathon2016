@@ -1,4 +1,5 @@
 from games.models import Game, Round, RoundWords
+from words.models import Word
 from rest_framework import serializers
 from rest.serializers import UserSerializer
 from words.serializers import WordSerializer
@@ -13,9 +14,10 @@ class RoundWordsSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id','word','round']
 
     def create(self, validated_data):
+        wordKey = validated_data['word'].items()[0][1]
         return RoundWords.objects.create(
         round=validated_data['round'],
-        word=validated_data['word'],)
+        word=Word.objects.filter(id=wordKey)[0])
 
 class RoundSerializer(serializers.HyperlinkedModelSerializer):
     words = RoundWordsSerializer(many=True)
