@@ -44,6 +44,7 @@ angular.module('starter.controllers', ['services'])
     $scope.data = {};
  
     $scope.login = function() {
+      $state.go("app.dashboard");
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
             var alertPopup = $ionicPopup.alert({
                 title: 'Login Successful!',
@@ -73,7 +74,7 @@ angular.module('starter.controllers', ['services'])
   
   $scope.onTimeout = function() {
     if ($scope.timer <= 0) {
-      $state.go('app.round');
+      $state.go('app.round', {}, {reload: true});
       $scope.timer = 10;
     } else {
       $scope.timer--;
@@ -133,8 +134,6 @@ angular.module('starter.controllers', ['services'])
     current_submission = current_submission.toUpperCase();
     
     if (current_submission != '') {
-      //console.log($scope.rounds[$scope.round].synonyms[0]);
-      //console.log(current_submission);
       var score = 0;
       if (current_submission in $scope.rounds[$scope.round].synonyms) {
         console.log("YES");
@@ -150,6 +149,7 @@ angular.module('starter.controllers', ['services'])
       $scope.rounds[$scope.round].submissions.push(foo);
       $scope.input.current_submission = "";
       $ionicScrollDelegate.$getByHandle('submissions').scrollBottom();
+      document.getElementById('submission_field').focus();
     }
   }
 });

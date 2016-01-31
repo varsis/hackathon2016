@@ -19,13 +19,21 @@
 .button-tourquois {
 	background-color: darkturquoise !important;
 }
+.button-tourquois:active {
+	background-color: rgba(0,206,209,0.5) !important;
+}
 
 .item-divider {
-	background-color: darkturquoise;
+	background-color: darkturquoise !important;
 	color: black;
 }
 
-.dark .card h2 {
+.pull-right {
+	float: right;
+	height: 4em;
+}
+
+.dark .card h2, .dark .card h4  {
 	color: black !important;
 }
 
@@ -89,6 +97,7 @@
 }
 
 .button-huge {
+	border-spacing: 10px;
 	border-radius: 50%;
 	font-weight: 100;
 	font-size: 7em !important;
