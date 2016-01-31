@@ -35,5 +35,7 @@ router.register(r'roundwords',gamesView.RoundWordsViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
+    url(r'^api-token-verify/', 'rest_framework_jwt.views.verify_jwt_token'),
+    url(r'^api-auth-token','rest_framework_jwt.views.obtain_jwt_token'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
