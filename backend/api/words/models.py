@@ -9,7 +9,7 @@ class Word(models.Model):
 
 
 class Association(models.Model):
-    word1 = models.ForeignKey(Word,related_name='word1')
+    word1 = models.ForeignKey(Word,related_name='word1',primary_key=True)
     word2 = models.ForeignKey(Word,related_name='word2')
     score = models.IntegerField(default=5)
 

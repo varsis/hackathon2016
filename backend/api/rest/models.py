@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class GameUser(models.Model):
-    user = models.ForeignKey(User)
+class UserProfile(models.Model):
+    # Access using : u = User.objects.get()
+    # u.userProfile.score
+    user = models.OneToOneField(User)
     score = models.IntegerField(default=0)

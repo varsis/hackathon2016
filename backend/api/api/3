@@ -10,7 +10,7 @@ class GameViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         return Game.objects.filter(Q(player1=user) | Q(player2=user))
-
+        
 
 
 class RoundViewSet(viewsets.ModelViewSet):

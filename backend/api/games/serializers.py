@@ -1,5 +1,6 @@
 from games.models import Game, Round, RoundWords
 from rest_framework import serializers
+from rest.serializers import UserSerializer
 
 class GameSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

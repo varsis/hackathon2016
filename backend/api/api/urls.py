@@ -20,22 +20,24 @@ from rest import views
 from words import views as wordsView
 from games import views as gamesView
 
+from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token
+
 router = routers.DefaultRouter()
 
 router.register(r'users', views.UserViewSet)
-router.register(r'gameuser', views.GameUserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'user-profile', views.UserProfileViewSet)
+#router.register(r'groups', views.GroupViewSet)
 
 router.register(r'words', wordsView.WordViewSet)
 router.register(r'associations',wordsView.AssociationViewSet)
 
-router.register(r'game',gamesView.GameViewSet)
+router.register(r'game',gamesView.GameViewSet,base_name="game")
 router.register(r'round',gamesView.RoundViewSet)
 router.register(r'roundwords',gamesView.RoundWordsViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^api-token-verify/', 'rest_framework_jwt.views.verify_jwt_token'),
-    url(r'^api-auth-token','rest_framework_jwt.views.obtain_jwt_token'),
+    url(r'^api-token-verify/', verify_jwt_token),
+    url(r'^api-auth-token', obtain_jwt_token),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
