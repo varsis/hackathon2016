@@ -27,3 +27,10 @@ input.submission {
 	overflow: hidden;
 	height: 12em;
 }
+
+.winner {
+	color: green;
+}
+.loser {
+	color: red;
+}

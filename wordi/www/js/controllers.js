@@ -77,9 +77,15 @@ angular.module('starter.controllers', ['services'])
 .controller('GameCtrl', function($scope, $state) {
   
   $scope.game = { game_id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' };
-  
+  $scope.winner;
+
   $scope.play = function() {
     $state.go('app.round');
+  }
+
+  $scope.calcResults = function(){
+    // Iterate through the rounds of this game and calculate scores
+    // display the winner
   }
   
 })

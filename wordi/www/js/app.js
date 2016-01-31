@@ -61,7 +61,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
     
     .state('app.game_lobby', {
-      url: '/game_lobby ',
+      url: '/game_lobby',
       views: {
         'menuContent': {
           templateUrl: 'templates/gameLobby.html',
@@ -69,9 +69,19 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    
+
+    .state('app.endscreen', {
+      url: '/results',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/resultscreen.html',
+          controller: 'GameCtrl'
+        }
+      }
+    })
+
     .state('app.round', {
-      url: '/round ',
+      url: '/round',
       views: {
         'menuContent': {
           templateUrl: 'templates/round.html',
@@ -98,7 +108,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           controller: 'PlaylistCtrl'
         }
       }
-    });
+    })
+
+    .state('login', {
+       url: '/login',
+       templateUrl: 'templates/index.html',
+       controller: 'LoginCtrl'
+     })
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/login');
 });
