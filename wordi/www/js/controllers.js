@@ -34,11 +34,10 @@ angular.module('starter.controllers', ['services'])
 .controller('DashboardCtrl', function($scope, $state, GameService) {
   
   $scope.games = GameService.all();
-    
-    $scope.playGame = function() {
+
+  $scope.playGame = function() {
         $state.go('app.game_lobby');
-    }
-  
+  }
 })
 
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
@@ -60,9 +59,10 @@ angular.module('starter.controllers', ['services'])
 })
 
 
-.controller('GameCtrl', function($scope, $state, $timeout, GameService) {
+.controller('GameCtrl', function($scope, $state, $timeout, GameService, UserService) {
   
   //$scope.game = { game_id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' };
+  $scope.users = UserService.all(); 
   $scope.game = GameService.get(0);
   $scope.timer = 10;
   var mytimeout;
@@ -84,7 +84,18 @@ angular.module('starter.controllers', ['services'])
   $scope.play = function() {
     $scope.timer = 5;
     $scope.init_countdown();
+
   }
+
+  $scope.newGame = function() {
+    $state.go('app.newgame');
+  }
+  
+  $scope.playGame = function() {
+    console.log("playgame in game controller");
+        $state.go('app.game_lobby');
+  }
+
 })
 
 .controller('RoundCtrl', function($scope, $state, $timeout, $ionicScrollDelegate, RoundService) {
@@ -141,7 +152,4 @@ angular.module('starter.controllers', ['services'])
       $ionicScrollDelegate.$getByHandle('submissions').scrollBottom();
     }
   }
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
 });

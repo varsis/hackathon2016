@@ -24,12 +24,33 @@ angular.module('services', [])
     }
 })
 
+.factory('UserService', function() {
+  var users = [
+      { user_id: 0, img: "img/hassaan.jpg", name: 'Hassaan Ali', wins: 23, losses: 17},
+      { user_id: 1, img: "img/ionic.png", name: 'Chris Pav', wins: 40, losses: 10 },
+      { user_id: 2, img: "img/ionic.png", name: 'Joe Rogan', wins: 100, losses: 0 },
+      { user_id: 3, img: "img/ionic.png", name: 'Emily Blunt', wins: 12, losses: 84 }
+  ];
+
+  return {
+    all: function() {
+      return users;
+    },
+    remove: function(user) {
+      users.splice(users.indexOf(user), 1);
+    },
+    get: function(userId) {
+        return users[userId];
+     }
+  };
+})
+
 .factory('GameService', function() {
   var games = [
-      { game_id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' },
-      { game_id: 1, img: "img/ionic.png", opponent: 'Chris Pav' },
-      { game_id: 2, img: "img/ionic.png", opponent: 'Joe Rogan' },
-      { game_id: 3, img: "img/ionic.png", opponent: 'Emily Blunt' }
+      { game_id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali', opponentscore: 102 },
+      { game_id: 1, img: "img/ionic.png", opponent: 'Chris Pav', opponentscore: 73 },
+      { game_id: 2, img: "img/ionic.png", opponent: 'Joe Rogan', opponentscore: 99 },
+      { game_id: 3, img: "img/ionic.png", opponent: 'Emily Blunt', opponentscore: 26 }
   ];
 
   return {

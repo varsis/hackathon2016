@@ -72,22 +72,22 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
+    .state('app.newgame', {
+      url: '/newgame',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/newgame.html',
+          controller: 'GameCtrl'
+        }
+      }
+    })
+
     .state('app.round', {
       url: '/round',
       views: {
         'menuContent': {
           templateUrl: 'templates/round.html',
           controller: 'RoundCtrl'
-        }
-      }
-    })
-
-    .state('app.single', {
-      url: '/playlists/:playlistId',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlist.html',
-          controller: 'PlaylistCtrl'
         }
       }
     })
