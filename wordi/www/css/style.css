@@ -1,1 +1,163 @@
 /* Empty. Add your own CSS if you like */
+
+.bar.bar-header {
+	background-color: darkturquoise;
+}
+
+.bar-header, .dash-footer, .item-divider {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+}
+
+.dark {
+	color: white;
+	background-color: #303030;
+}
+
+.button-tourquois {
+	background-color: darkturquoise !important;
+}
+
+.item-divider {
+	background-color: darkturquoise;
+	color: black;
+}
+
+.dark .card h2 {
+	color: black !important;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4 {
+	border: none !important;
+	color: white;
+	font-weight: 200;
+}
+
+.opp-breakdown {
+	font-size: 1.2em;
+}
+
+.prof_pic {
+	width: 6em;
+	height: 6em;
+}
+
+.bar.bar-light {
+  background-color: rgba(0,0,0,0.7) !important; /* or transparent, or background:none */
+}
+
+.dash-footer {
+	height: 5em !important;
+}
+
+.dash-footer .button-new-game {
+	font-size: 1.5em;
+	font-weight: 900;
+	height: 2em;
+	width: 70%;
+	margin: auto;
+}
+
+.dash-header {
+	padding-top: 0px !important;
+	margin-top: 0px !important;
+	background-color: darkturquoise;
+	color: white;
+	font-size: 1.5em;
+}
+
+.dash-header .col {
+	padding: 0px;
+}
+
+.dash-header .col span {
+	color: black;
+}
+.dash-header .col i {
+	font-size: 1.2em;
+}
+.dash-header .col i.heart {
+	color: red;
+}
+.dash-header .col i.coin {
+	color: gold;
+}
+.dash-header .col i.star {
+	color: violet;
+}
+
+.button-huge {
+	border-radius: 50%;
+	font-weight: 100;
+	font-size: 7em !important;
+	height: 2em;
+	width: 2em;
+	
+}
+
+.game-info {
+	padding: 1em;
+	background-color: #4A4A4A;
+}
+
+.dash-header span {
+	font-size: 0.6em;
+}
+
+.button_score h4 {
+	color: white;
+}
+
+input {
+	text-align: center;
+}
+
+input.submission {
+	font-size: 1.2em;
+}
+
+.col-50 {
+	padding-top: 1em;
+}
+
+.guesses {
+	color: grey;
+}
+
+.guesses_container {
+	overflow: hidden;
+	height: 12em;
+}
+
+.winner {
+	color: green;
+}
+.loser {
+	color: red;
+}
+.challenger {
+	font-weight: 100;
+	font-size: 5em;
+	color: darkturquoise;
+}
+
+.box {
+	border-radius: 4px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	padding: 16px;
+	border: 1px solid darkturquoise;
+}
+
+.box span {
+	color: white;
+	font-weight: 200;
+	font-size: 4em;
+}
+
+.timer {
+	width: 75%;
+}

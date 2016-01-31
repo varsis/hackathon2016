@@ -1,0 +1,46 @@
+<ion-view view-title={{roundTitle}} class="dark">
+  <ion-content>
+    
+    <div class="row">
+      <div class="col col-25">
+        <center>
+          <button class="button button-calm button-outline timer"><span>{{rounds[round].round_time}}</span></button> 
+        </center>
+      </div>
+      <div class="col col-50" >      
+        <center><h2>{{rounds[round].word}}</h2></center>     
+      </div>
+      <div class="col col-25">
+        <center>
+          <button class="button button-calm button-outline timer"><span>{{rounds[round].score}}</span></button> 
+        </center>
+      </div>
+    </div>
+    
+    <center><p>{{rounds[round].sentence}}</p></center>   
+    
+    <div class="item item-divider">
+      <center>Prior Guesses</center>
+    </div>
+    
+    <!-- Guesses list -->
+   <ion-scroll class="guesses_container" delegate-handle="submissions">
+      <div class="ion-list guesses" ng-repeat="word in rounds[round].submissions track by $index">
+        <ion-item class="item">
+          <div ng-repeat="(key, value) in word">
+            {{key}}
+            <span class="badge badge-calm">{{value}}</span>
+          </div>
+        </ion-item>
+      </div>
+    </ion-scroll>
+    
+      <label class="item item-input">
+        <input class="submission" type="text" name="submission" ng-model='input.current_submission' placeholder="SYNONYM">
+      </label>
+      <button class="button button-full button-calm " ng-click="submit(input.current_submission)">
+        <center>Submit</center>
+      </button>
+      
+  </ion-content>
+</ion-view>

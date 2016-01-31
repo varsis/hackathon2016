@@ -1,0 +1,63 @@
+<ion-view view-title="Wordi" class="dark">
+
+  <ion-content>
+    
+    <div class="row dash-header">
+      <div class="col col-33">
+        <center>
+          <span>LIVES</span><br/>
+          <i class="icon heart ion-heart"></i>
+          3
+        </center>
+      </div>
+      <div class="col col-33">
+        <center>
+          <span>COINS</span><br/>
+          <i class="icon coin ion-social-usd"></i>
+          23
+        </center>
+      </div>
+      <div class="col col-33">
+        <center>
+          <span>LEVEL</span><br/>
+          <i class="icon star ion-star"></i>
+          2
+        </center>
+      </div>
+    </div>
+    
+    
+    <ion-list>
+      
+      <div ng-repeat="game in games" href="#/app/game_lobby/{{game.game_id}}" class="list card">
+      
+        <div class="row">
+          <div class="col col-80">
+            <div class="item item-avatar">
+              <img class="prof_pic" src={{game.img}}>
+              <h2>{{game.opponent}} challenged you!</h2>
+            </div>
+          </div>
+        
+          <div class="col col-20">
+            <center>
+              <span>SCORE</span><br/>
+              <button class="button button-energized button_score"><h4>{{game.opponentscore}}</h4></button>
+            </center>
+          </div>
+          
+        </div>
+        
+        <button class="button button-full button-calm" ng-click="playGame()">
+          <i class="icon ion-happy-outline"></i><span> Play</span>
+        </button>
+   
+      </div>
+    </ion-list>
+  </ion-content>
+  
+  <div class="bar bar-footer bar-light dash-footer" ng-controller="GameCtrl">
+    <button class="button button-calm button-large button-new-game" ng-click="newGame()">NEW GAME</button>
+  </div>
+  
+</ion-view>

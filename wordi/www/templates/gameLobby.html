@@ -1,0 +1,50 @@
+<ion-view view-title="Lobby" class="dark">
+  <ion-content>
+    <br/>
+    <center>
+      CHALLENGED BY
+    </center>
+    <br/>
+    <center><span class="challenger">{{game.opponent}}</span></center>
+    <center>
+      <br/>
+      <span>LEVEL</span>
+      <i class="icon star ion-star"></i> 2
+    </center>
+    
+    <br/>
+   
+    <div class="box">
+      <center>
+        <h4>SCORE TO BEAT</h4>
+        <br/>
+        <span>107</span>
+      </center>
+    </div>
+    
+    <br/>
+    <br/>
+    <center>
+      <div ng-show="timer > 5">
+        Once started, you must finish the game or else risk losing the match.<br/>
+        Good Luck!
+      </div>
+      <div ng-show="timer <= 5">
+        Get ready, the match is about to start!
+      </div>
+    </center>
+    <br/>
+    
+    <div>
+      <center>
+        <button class="button button-tourquois button-huge" ng-show="timer > 5" ng-click="play()">
+          GO
+        </button>
+        <button class="button button-tourquois button-huge" ng-show="timer <= 5" >
+          {{timer}}
+        </button>
+      </center>
+    </div>
+   
+  </ion-content>
+</ion-view>
