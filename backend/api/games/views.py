@@ -12,10 +12,13 @@ class GameViewSet(viewsets.ModelViewSet):
         return Game.objects.filter(Q(player1=user) | Q(player2=user))
 
 
-
 class RoundViewSet(viewsets.ModelViewSet):
-    queryset = Round.objects.all()
     serializer_class = RoundSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Round.objects.filter(Q(player=user))
+
 
 class RoundWordsViewSet(viewsets.ModelViewSet):
     queryset = RoundWords.objects.all()

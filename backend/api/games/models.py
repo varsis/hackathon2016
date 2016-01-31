@@ -17,12 +17,13 @@ class Game(models.Model):
     numberOfRounds = models.IntegerField(default=5)
 
 class Round(models.Model):
-    game = models.ForeignKey(Game)
+    game = models.ForeignKey(Game,related_name='rounds')
+    word = models.ForeignKey(Word)
     player = models.ForeignKey(User)
     score = models.IntegerField(default=0)
 
 class RoundWords(models.Model):
-    round = models.ForeignKey(Round)
+    round = models.ForeignKey(Round,related_name='words')
     word = models.ForeignKey(Word)
 
 

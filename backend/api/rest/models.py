@@ -8,5 +8,5 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model):
     # Access using : u = User.objects.get()
     # u.userProfile.score
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User,related_name='profile')
     score = models.IntegerField(default=0)

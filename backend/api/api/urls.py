@@ -32,11 +32,12 @@ router.register(r'words', wordsView.WordViewSet)
 router.register(r'associations',wordsView.AssociationViewSet)
 
 router.register(r'game',gamesView.GameViewSet,base_name="game")
-router.register(r'round',gamesView.RoundViewSet)
+router.register(r'round',gamesView.RoundViewSet,base_name='round')
 router.register(r'roundwords',gamesView.RoundWordsViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
+    url(r'^register',views.create_auth),
     url(r'^api-token-verify/', verify_jwt_token),
     url(r'^api-auth-token', obtain_jwt_token),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))

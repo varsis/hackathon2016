@@ -5,7 +5,7 @@ from rest_framework import serializers
 class WordSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Word
-        fields = '__all__'
+        fields = ['word']
 
 
 class AssociationSerializer(serializers.HyperlinkedModelSerializer):
