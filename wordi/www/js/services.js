@@ -50,6 +50,7 @@ angular.module('services', [])
     {
       round_time: 20,
       word: "FAST",
+      sentence: "Hussein Bolt is very fast.",
       score: 0,
       synonyms: {
         "AGILE": 15,
@@ -66,6 +67,7 @@ angular.module('services', [])
     {
       round_time: 20,
       word: "CLUMSY",
+      sentence: "Hassaan is a clumsy programmer.",
       score: 0,
       synonyms: {
         "INEPT": 15,
@@ -86,6 +88,7 @@ angular.module('services', [])
     {
       round_time: 20,
       word: "STUPID",
+      sentence: "Everyone can agree, Python is a stupid language.",
       score: 0,
       synonyms: {
         "DULL": 15,
@@ -110,6 +113,7 @@ angular.module('services', [])
     {
       round_time: 20,
       word: "ATHLETIC",
+      sentence: "Mike is extremely athletic and good-looking.",
       score: 0,
       synonyms: {
         "ACTIVE": 15,
@@ -126,6 +130,7 @@ angular.module('services', [])
     {
       round_time: 20,
       word: "HAPPY",
+      sentence: "When writing C, I need to visit my happy place often.",
       score: 0,
       synonyms: {
         "CHEERFUL": 15,

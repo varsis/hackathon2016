@@ -64,7 +64,6 @@ angular.module('starter.controllers', ['services'])
   
   //$scope.game = { game_id: 0, img: "img/hassaan.jpg", opponent: 'Hassaan Ali' };
   $scope.game = GameService.get(0);
-  $scope.countdown_intiated = false;
   $scope.timer = 10;
   var mytimeout;
   
@@ -75,9 +74,9 @@ angular.module('starter.controllers', ['services'])
   $scope.onTimeout = function() {
     if ($scope.timer <= 0) {
       $state.go('app.round');
-       $scope.timer = 10;
+      $scope.timer = 10;
     } else {
-       $scope.timer--;
+      $scope.timer--;
       mytimeout = $timeout($scope.onTimeout, 1000);
     }
   }
@@ -85,8 +84,6 @@ angular.module('starter.controllers', ['services'])
   $scope.play = function() {
     $scope.timer = 5;
     $scope.init_countdown();
-    
-    //$state.go('app.round');
   }
 })
 
@@ -97,19 +94,21 @@ angular.module('starter.controllers', ['services'])
   };
   
   $scope.rounds = RoundService.all();
+  //console.log($scope.rounds);
   $scope.round = 0;
-  $scope.roundTitle = "Round " + ($scope.round + 1);
+  $scope.roundTitle = "Round " + ($scope.round + 1) + " / 5";
   
   $scope.onTimeout = function(){
     if ($scope.rounds[$scope.round].round_time <= 0) {
       $scope.round++;
+      $scope.roundTitle = "Round " + ($scope.round + 1) + " / 5";
       if ($scope.round > 4) {
         $state.go('app.results');
       }
-    } else {
-      $scope.rounds[$scope.round].round_time--;
-      mytimeout = $timeout($scope.onTimeout,1000);
     }
+    
+    $scope.rounds[$scope.round].round_time--;
+    mytimeout = $timeout($scope.onTimeout,1000);
   }
   var mytimeout = $timeout($scope.onTimeout,1000);
     

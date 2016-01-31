@@ -1,32 +1,47 @@
 <ion-view view-title="Lobby" class="dark">
   <ion-content>
+    <br/>
+    <center>
+      CHALLENGED BY
+    </center>
+    <br/>
+    <center><span class="challenger">{{game.opponent}}</span></center>
+    <center>
+      <br/>
+      <span>LEVEL</span>
+      <i class="icon star ion-star"></i> 2
+    </center>
     
-    <center><h1>{{game.opponent}}</h1></center>
+    <br/>
+   
+    <div class="box">
+      <center>
+        <h4>SCORE TO BEAT</h4>
+        <br/>
+        <span>107</span>
+      </center>
+    </div>
     
-    <!-- Opponent breakdown -->
-    <div class="opp-breakdown" ng-repeat="num in [1,2,3,4,5]">
-      <div class="row">
-        <div class="col col-50">
-          Round {{num}}
-        </div>
-        <div class="col col-50">
-          123
-        </div>
+    <br/>
+    <br/>
+    <center>
+      <div ng-show="timer > 5">
+        Once started, you must finish the game or else risk losing the match.<br/>
+        Good Luck!
       </div>
-    </div>
-    
-    
-    </div>
-    <center><h4>Score to Beat</h4></center>
-    <center><h1>107</h1></center>
+      <div ng-show="timer <= 5">
+        Get ready, the match is about to start!
+      </div>
+    </center>
+    <br/>
     
     <div>
       <center>
-        <button class="button button-calm button-large" ng-show="timer > 5" ng-click="play()">
-          <h1>GO</h1>
+        <button class="button button-tourquois button-huge" ng-show="timer > 5" ng-click="play()">
+          GO
         </button>
-        <button class="button button-calm button-large" ng-show="timer <= 5">
-          <h1>{{timer}}</h1>
+        <button class="button button-tourquois button-huge" ng-show="timer <= 5" >
+          {{timer}}
         </button>
       </center>
     </div>
