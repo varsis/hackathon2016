@@ -32,20 +32,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       controller: 'AppCtrl'
     })
 
-    .state('app.search', {
-      url: '/search',
-      views: {
+    .state('app.profile', {
+      url: '/profile',
+       views: {
         'menuContent': {
-          templateUrl: 'templates/search.html'
-        }
-      }
-    })
-
-    .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
+            templateUrl: 'templates/profile.html',
+            controller: 'AppCtrl'
         }
       }
     })
@@ -70,12 +62,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-    .state('app.endscreen', {
+    .state('app.results', {
       url: '/results',
       views: {
         'menuContent': {
           templateUrl: 'templates/resultscreen.html',
-          controller: 'GameCtrl'
+          controller: 'RoundCtrl'
         }
       }
     })
@@ -86,16 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         'menuContent': {
           templateUrl: 'templates/round.html',
           controller: 'RoundCtrl'
-        }
-      }
-    })
-    
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
         }
       }
     })
